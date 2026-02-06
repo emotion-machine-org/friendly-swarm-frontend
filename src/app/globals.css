@@ -1,7 +1,7 @@
 /* Fonts */
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Light.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Book.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Book.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Regular.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Regular.ttf') format('truetype');
   font-weight: 450;
   font-style: normal;
   font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Medium.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Semibold.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Semibold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
   font-family: 'Funktional Grotesk';
-  src: url('fonts/FunktionalGrotesk-Bold.ttf') format('truetype');
+  src: url('/fonts/FunktionalGrotesk-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -279,7 +279,6 @@ html, body {
   display: block;
 }
 
-
 /* Connected badge */
 .connected-badge {
   display: flex;
@@ -411,9 +410,98 @@ html, body {
   color: #f59e0b;
 }
 
+/* Connecting state */
+.connecting-state {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e5e5e5;
+  border-top-color: #0A66C2;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.connecting-state .body-text {
+  margin-bottom: 8px;
+}
+
+.connecting-state a {
+  color: #0A66C2;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.connecting-state a:hover {
+  text-decoration: underline;
+}
+
+.btn-cancel {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 20px;
+  background: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-family: 'Funktional Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #737373;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-cancel:hover {
+  background: #fafafa;
+  color: #525252;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #171717;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Funktional Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  z-index: 1000;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+  max-width: 400px;
+  text-align: center;
+}
+
+.toast.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
 /* Hidden state */
 .hidden {
   display: none !important;
+}
+
+/* Tab content loading */
+.tab-content-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
 }
 
 /* Empty state */
