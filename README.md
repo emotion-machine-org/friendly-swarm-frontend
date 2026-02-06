@@ -1,0 +1,3 @@
+# friendlyswarm
+
+A new project.
