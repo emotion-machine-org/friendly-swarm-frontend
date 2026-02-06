@@ -402,6 +402,15 @@ html, body {
   font-size: 12px;
 }
 
+.submission-status {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.submission-status-active {
+  color: #f59e0b;
+}
+
 /* Hidden state */
 .hidden {
   display: none !important;

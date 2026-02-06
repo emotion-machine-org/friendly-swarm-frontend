@@ -85,7 +85,8 @@
     submissions.unshift({
       date: dateStr,
       url: url,
-      likes: 0
+      likes: 0,
+      submittedAt: now.getTime()
     });
 
     postUrlInput.value = '';
@@ -105,9 +106,13 @@
       return '<p class="empty-state">No posts submitted yet.</p>';
     }
     return submissions.map(function (s) {
+      var isInProgress = s.submittedAt && (Date.now() - s.submittedAt < 30 * 60 * 1000);
+      var statusHtml = isInProgress
+        ? '<span class="submission-status submission-status-active">in progress</span>'
+        : '<span class="submission-likes">' + s.likes + ' likes</span>';
       return '<div class="submission-item">' +
         '<a href="' + escapeHtml(s.url) + '" class="submission-date" target="_blank" rel="noopener">' + escapeHtml(s.date) + '</a>' +
-        '<span class="submission-likes">' + s.likes + ' likes</span>' +
+        statusHtml +
         '</div>';
     }).join('');
   }
